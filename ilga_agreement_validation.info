@@ -1,0 +1,9 @@
+; @author Klaas Eikelboom (CiviCooP)
+; @date 05 juli 2017
+; @license AGPL-3.0
+name = Ilga Agreement Validation
+description = Validation for agreement tick box (all values must be checked)
+core = 7.x
+version = "7.x-1.2"
+package = Ilga
+dependencies[] = webform_validation

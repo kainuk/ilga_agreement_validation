@@ -1,0 +1,30 @@
+<?php
+  function ilga_agreement_validation_webform_validation_validators(){
+    return [
+      'all_checked' => [
+        'name' => t('All Checked'),
+        'component_types' => [
+          'select',
+        ],
+        'custom_error' => true,
+      ]
+    ];
+  }
+
+function ilga_agreement_validation_webform_validation_validate($validator_name, $items, $components, $rule){
+    switch($validator_name){
+      case 'all_checked' :
+        $allset = true;
+        foreach($items as $item){
+          foreach($item as $value) {
+            $allset = $value && $allset;
+          }
+        }
+        if($allset) {
+          return [];
+        } else {
+          return [$rule['error_message']];
+        }
+    }
+  }
+
